@@ -67,9 +67,7 @@ Security (only verified NGOs receive funds) | ✅
 ---
 
 ## 🧩 Smart Contract Details
-- **Network:** Ethereum Sepolia Testnet  
-- **Contract Address:** *(Add your final contract address here)*  
-- **Admin Wallet:** *(Your wallet address)*  
+- **Network:** Ethereum Sepolia Testnet   
 
 ---
 
