@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HeartBridge Admin | Blockchain Dashboard</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #fff6e9, #ffe9d6);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background-color: #ff7043;
+      color: white;
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 1.6rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      margin: 4px 0 0;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .dashboard {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+
+    h2 {
+      color: #ff7043;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .card {
+      background-color: #fff3e6;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      width: 40%;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h3 {
+      color: #ff6b00;
+      margin-bottom: 0.5rem;
+    }
+
+    .ngo-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+    }
+
+    th, td {
+      border: 1px solid #ffe0bf;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #ff914d;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fff8f3;
+    }
+
+    button {
+      background-color: #ff914d;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #e87d3e;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    .center {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    ❤️ HeartBridge Admin Dashboard
+    <p>Building Bridges of Hope</p>
+  </header>
+
+  <div class="dashboard">
+    <h2 id="adminStatus">Welcome, Admin</h2>
+
+    <div class="center">
+      <button onclick="connectAdmin()">🔗 Connect Admin Wallet</button>
+    </div>
+
+    <div class="stats">
+  <div class="card">
+    <h3>Total Donations</h3>
+    <p id="totalDonations">Ξ 0.00 ETH</p>
+  </div>
+  <div class="card">
+    <h3>Donations Made</h3>
+    <p id="donationCount">0</p>
+  </div>
+  <div class="card">
+    <h3>Registered NGOs</h3>
+    <p id="ngoCount">0</p>
+  </div>
+</div>
+<!-- Register New NGO Section -->
+<div style="text-align:center; margin-top: 20px; margin-bottom: 40px;">
+  <h3 style="color:#ff7b00;">🏢 Register a New NGO</h3>
+  <input type="text" id="newNGOAddress" placeholder="NGO Wallet Address"
+         style="padding:10px; width:300px; border-radius:8px; border:1px solid #ffd1a3;" />
+  <input type="text" id="newNGOName" placeholder="NGO Name"
+         style="padding:10px; width:250px; border-radius:8px; border:1px solid #ffd1a3; margin-left:10px;" />
+  <button onclick="registerNewNGO()" style="margin-left:10px;">➕ Register NGO</button>
+</div>
+
+    <h2>NGO Verification List</h2>
+    <table class="ngo-table">
+  <tr>
+    <th>NGO Name</th>
+    <th>Wallet Address</th>
+    <th>Status</th>
+    <th>Action</th>
+  </tr>
+  <tbody id="ngoTableBody"></tbody>
+</table>
+
+    <div style="text-align:center; margin-top: 2rem;">
+  <h3 style="color:#ff7b00;">💰 Withdraw to Verified NGO</h3>
+  <input type="text" id="ngoAddressInput" placeholder="NGO Wallet Address" 
+         style="padding:10px; width:300px; border-radius:8px; border:1px solid #ffd1a3;" />
+  <input type="number" id="withdrawAmountInput" placeholder="Amount in ETH" 
+         style="padding:10px; width:150px; border-radius:8px; border:1px solid #ffd1a3; margin-left:10px;" />
+  <button onclick="withdrawToNGO()" style="margin-left:10px;">🚀 Send</button>
+</div>
+
+
+  <footer>© HeartBridge | Built for Good</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.2/dist/ethers.umd.min.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
