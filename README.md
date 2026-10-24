@@ -21,7 +21,7 @@ Only verified NGOs can receive funds, and all transactions are visible publicly 
 |--------------|------|------------------|
 | **Bhumika Aggarwal** | Team Leader & Blockchain Developer | Smart contract development, Web3 integration, testing |
 | **Bhavna Bharti** | Frontend Developer | UI development, UX & design |
-| **Aanchal Patidar** | Backend Developer | Logic integration, admin functionalities |
+| **Aanchal Patidar** | Backend Developer | Logic integration, Admin functionalities |
 
 **Team Name:** Fireflies  
 **Institution:** Poornima University  
